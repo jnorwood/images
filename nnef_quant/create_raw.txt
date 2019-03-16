@@ -1,0 +1,23 @@
+
+https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
+
+jay@jay-sk:~/images/tflite_quant$ ~/anaconda3/bin/python
+Python 2.7.15 |Anaconda, Inc.| (default, Dec 14 2018, 19:04:19) 
+[GCC 7.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from PIL import Image
+>>> im = Image.open("cat_299.tga")
+>>> print(im.format, im.size, im.mode)
+('TGA', (299, 299), 'RGB')
+
+
+convert to numpy array
+>>> import numpy
+>>> pix = numpy.array(im)
+>>> pix
+
+>>> pix.shape
+(299, 299, 3)
+
+
+tp.astype('uint8').tofile("cat_nnef_299.raw")
